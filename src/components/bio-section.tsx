@@ -7,9 +7,10 @@ interface BioSection {
   home?: string;
   skills?: string[];
   interests?: string[];
+  hobbies?: string[];
 }
 
-const BioSection = ({ home, skills, interests }: BioSection) => {
+const BioSection = ({ home, skills, interests, hobbies }: BioSection) => {
   const formatList = (list: string[]): string[] => {
     return list.map((item, index) => {
       if (index === list.length - 1) {
@@ -38,6 +39,12 @@ const BioSection = ({ home, skills, interests }: BioSection) => {
         <div className="flex items-center">
           <BsFillEmojiSunglassesFill className="mr-1.5" />
           {formatList(interests)}
+        </div>
+      )}
+      {hobbies && (
+        <div className="flex items-center">
+          <BsFillEmojiSunglassesFill className="mr-1.5" />
+          {formatList(hobbies)}
         </div>
       )}
     </div>

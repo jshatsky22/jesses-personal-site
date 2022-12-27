@@ -11,6 +11,7 @@ interface PersonalInfoProps {
   home?: string;
   skills?: string[];
   interests?: string[];
+  hobbies?: string[];
 }
 
 const PersonalInfo = ({
@@ -21,6 +22,7 @@ const PersonalInfo = ({
   home,
   skills,
   interests,
+  hobbies,
 }: PersonalInfoProps) => {
   return (
     <div className="centered-container">
@@ -29,7 +31,12 @@ const PersonalInfo = ({
         <p className="text-lg">{introduction}</p>
       </InfoSection>
       <InfoSection title="Bio">
-        <BioSection home={home} skills={skills} interests={interests} />
+        <BioSection
+          home={home}
+          skills={skills}
+          interests={interests}
+          hobbies={hobbies}
+        />
       </InfoSection>
     </div>
   );

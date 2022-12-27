@@ -7,10 +7,42 @@ import {
   TemplateRenderProps,
   GetHeadConfig,
   HeadConfig,
+  TemplateConfig,
 } from "@yext/pages";
 import HomeLayout from "../components/layouts/home-layout";
 import Greeting from "../components/greeting";
 import PersonalInfo from "../components/personal-info";
+
+export const config: TemplateConfig = {
+  stream: {
+    $id: "jesse-shatsky-stream",
+    // Specifies the exact data that each generated document will contain. This data is passed in
+    // directly as props to the default exported function.
+    fields: [
+      "id",
+      "name",
+      "c_headshot",
+      "c_socialLinks",
+      "c_shortBio",
+      "c_longBio",
+      "c_aboutMePhotos",
+      "slug",
+      "c_hobbies",
+      "c_interests",
+      "c_hometown",
+      "c_currentlyResidingIn",
+    ],
+    // Defines the scope of entities that qualify for this stream.
+    filter: {
+      entityIds: ["jesse-shatsky"],
+    },
+    // The entity language profiles that documents will be generated for.
+    localization: {
+      locales: ["en"],
+      primary: false,
+    },
+  },
+};
 
 export const getPath: GetPath<TemplateProps> = () => {
   return `index.html`;
@@ -26,11 +58,26 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
   };
 };
 
-const Home: Template<TemplateRenderProps> = () => {
+const Home: Template<TemplateRenderProps> = ({ document }) => {
+  const {
+    name,
+    c_shortBio,
+    c_longBio,
+    c_headshot,
+    c_hobbies,
+    c_interests,
+    c_currentlyResidingIn,
+    c_hometown,
+  } = document;
+
   return (
     <HomeLayout
       GreetingContent={() => (
-        <Greeting name="Aaron" role="Developer Evangelist @ Yext" />
+        <Greeting
+          name={name}
+          role="Senior Product Manager @ Yext"
+          headshot={c_headshot}
+        />
       )}
       sections={[
         {
@@ -40,15 +87,11 @@ const Home: Template<TemplateRenderProps> = () => {
               twitter="https://twitter.com/apav_dev"
               github="https://github.com/apav-dev"
               devTo="https://dev.to/apavlick"
-              introduction="My name is Aaron and I'm a developer evangelist at Yext.
-                This is my first Developer Relations role and I'm really
-                enjoying it! We have a lot of cool, new tools for people looking
-                to build websites and I'm excited to demonstrate how to use
-                them. Before I started working at Yext, I worked as a software
-                engineer at a bank and a healthcare company."
+              introduction={c_longBio}
               home="New York, NY"
               skills={["Yext", "React", "Typescript", "Deno"]}
-              interests={["Skiing", "Podcasts", "TV", "Music"]}
+              interests={c_interests}
+              hobbies={c_hobbies}
             />
           ),
         },
