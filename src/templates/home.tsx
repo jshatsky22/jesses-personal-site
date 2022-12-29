@@ -99,6 +99,10 @@ const Home: Template<TemplateRenderProps> = ({ document }) => {
           title: "Blogs",
           Section: <></>,
         },
+        {
+          title: "My Work",
+          Section: <></>,
+        },
       ]}
     />
   );

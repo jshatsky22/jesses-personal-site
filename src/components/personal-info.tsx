@@ -1,7 +1,6 @@
 import * as React from "react";
 import BioSection from "./bio-section";
 import InfoSection from "./info-section";
-import SocialLinks from "./social-links";
 
 interface PersonalInfoProps {
   twitter?: string;
@@ -25,8 +24,7 @@ const PersonalInfo = ({
   hobbies,
 }: PersonalInfoProps) => {
   return (
-    <div className="centered-container">
-      <SocialLinks twitter={twitter} github={github} dev_to={devTo} />
+    <div className="flex-col content-center">
       <InfoSection title="Introduction">
         <p className="text-lg">{introduction}</p>
       </InfoSection>

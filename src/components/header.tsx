@@ -1,6 +1,7 @@
 import * as React from "react";
 import { v4 as uuid } from "uuid";
 import { twMerge } from "tailwind-merge";
+import SocialLinks from "./social-links";
 
 interface HomeHeaderProps {
   activeTab?: string;
@@ -12,8 +13,8 @@ interface HomeHeaderProps {
 
 const HomeHeader = ({ activeTab, tabs }: HomeHeaderProps) => {
   return (
-    <div className="absolute top-0 z-10 mx-auto w-full px-5 text-gray-50 md:right-0 md:w-1/2 md:bg-white md:px-14 md:text-gray-900">
-      <nav className="flex items-center gap-8 py-10 text-4xl font-bold">
+    <div className="fixed top-0 z-50 w-full bg-white">
+      <nav className="flex items-center justify-center gap-4 py-10 text-4xl font-bold">
         {tabs &&
           tabs.map((tab) => (
             <button
@@ -28,6 +29,7 @@ const HomeHeader = ({ activeTab, tabs }: HomeHeaderProps) => {
             </button>
           ))}
       </nav>
+      {/*       <SocialLinks twitter={twitter} github={github} dev_to={devTo} /> */}
     </div>
   );
 };
