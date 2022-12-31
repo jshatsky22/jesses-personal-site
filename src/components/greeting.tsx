@@ -24,8 +24,8 @@ const Greeting = ({ name, role, headshot }: GreetingProps): JSX.Element => {
           <img className="w-20 rounded-full" src={headshotUrl} />
         )}
       </div>
-      <div className="text-7xl font-black">{name}</div>
-      <div className="text-4xl font-black">{role}</div>
+      <div className="text-center text-7xl font-black">{name}</div>
+      <div className="text-center text-4xl font-black">{role}</div>
     </div>
   );
 };

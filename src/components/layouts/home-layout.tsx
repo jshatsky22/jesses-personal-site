@@ -29,11 +29,11 @@ const HomeLayout = ({
           onClick: () => setActiveSection(sections.indexOf(section)),
         }))}
       />
-      <div className="mt-[124px] flex bg-gradient-to-br from-gray-400 via-gray-600 to-blue-800 py-14 text-gray-50 md:h-full md:items-center">
-        <div className="w-fulltext-gray-50 flex min-h-[30vh] flex-1 justify-center md:h-full md:items-center">
+      <div className="mt-[124px] flex items-center bg-gradient-to-br from-gray-400 via-gray-600 to-blue-800 py-14 text-gray-50 md:h-full">
+        <div className="w-fulltext-gray-50 flex min-h-[30vh] flex-1 items-center justify-center md:h-full">
           {GreetingContent && <GreetingContent />}
         </div>
-        <div className="flex flex min-h-[30vh] w-full justify-center px-28 text-gray-800 md:right-0 md:h-full md:w-1/2 md:items-center">
+        <div className="flex flex min-h-[30vh] w-full items-center justify-center px-28 text-gray-800 md:right-0 md:h-full md:w-1/2">
           {sections?.[activeSection].Section}
         </div>
       </div>

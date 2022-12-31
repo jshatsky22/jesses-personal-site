@@ -13,24 +13,22 @@ interface HomeHeaderProps {
 
 const HomeHeader = ({ activeTab, tabs }: HomeHeaderProps) => {
   return (
-    <div className="fixed top-0 z-50 w-full bg-white">
-      <nav className="flex items-center justify-center gap-4 py-10 text-4xl font-bold">
-        {tabs &&
-          tabs.map((tab) => (
-            <button
-              key={uuid()}
-              className={twMerge(
-                "border-b-4 border-transparent hover:border-gray-400",
-                `${tab.label === activeTab ? "border-gray-400" : ""}`
-              )}
-              onClick={tab.onClick}
-            >
-              {tab.label}
-            </button>
-          ))}
-      </nav>
+    <nav className="fixed top-0 flex w-full items-center justify-center gap-4 border-2 border-solid border-gray-400 bg-white py-10 text-4xl font-bold shadow-lg lg:gap-8">
+      {tabs &&
+        tabs.map((tab) => (
+          <button
+            key={uuid()}
+            className={twMerge(
+              "border-b-4 border-transparent hover:border-gray-400",
+              `${tab.label === activeTab ? "border-gray-400" : ""}`
+            )}
+            onClick={tab.onClick}
+          >
+            {tab.label}
+          </button>
+        ))}
       {/*       <SocialLinks twitter={twitter} github={github} dev_to={devTo} /> */}
-    </div>
+    </nav>
   );
 };
 
