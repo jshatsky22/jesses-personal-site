@@ -13,10 +13,7 @@ interface FooterProps {
 const Footer = ({ footerContainerStyle, firstName, lastName }: FooterProps) => {
   return (
     <footer
-      className={twMerge(
-        "mx-auto w-full px-5 py-4 md:px-14",
-        footerContainerStyle
-      )}
+      className={twMerge("w-full px-5 py-4 md:px-14", footerContainerStyle)}
     >
       <Divider />
       {firstName && (
